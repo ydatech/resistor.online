@@ -1,2 +1,2 @@
 # Redirect default Netlify subdomain to primary domain
-http://resistor.netlify.com/* http://resistor.online/:splat 301!
+https://resistor.netlify.com/* https://resistor.online/:splat 301!
