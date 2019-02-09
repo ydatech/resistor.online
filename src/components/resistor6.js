@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SvgComponent = props => (
+const SvgComponent = ({ openModal, selectedColors, ...props }) => (
     <svg style={{
         display: "inline-block",
         position: "absolute",
@@ -22,24 +22,32 @@ const SvgComponent = props => (
             />
             <path
                 d="M137.417 16.48v156.124c.145 3.62 4.935.889 7.866 1.014 2.932.125 14.513-3.17 23.853-5.905V21.32c-9.34-2.736-17.564-5.28-24.29-6.155-7.351-1.124-7.515-2.936-7.429 1.315z"
-                fill="#fdca01"
+                onClick={openModal(1)}
+                fill={selectedColors.band1}
             />
             <path
                 d="M180.494 23.766V165.23c6.533-1.902 12.31-3.276 16.199-3.276h15.282V27.043h-15.282c-3.89 0-9.666-1.375-16.199-3.277z"
-                fill="#9e0097"
+                onClick={openModal(2)}
+                fill={selectedColors.band2}
             />
-            <path d="M222.407 27.393v134.625h31.323V27.393h-31.323z" fill="#f44800" />
+            <path
+                onClick={openModal(3)}
+                fill={selectedColors.band3}
+                d="M222.407 27.393v134.625h31.323V27.393h-31.323z" fill="#f44800" />
             <path
                 d="M385.155 11.18c-2.961 0-6.82.711-11.182 1.804v162.945c4.362 1.092 8.22 1.803 11.182 1.803.674 0 1.331-.02 1.983-.037.358.018.72.037 1.055.037 6.758 0 12.389-.793 17.13-2.208V14.382c-4.65-2.025-10.253-3.201-17.13-3.201-.33 0-.677.02-1.027.037-.66-.017-1.327-.037-2.01-.037z"
-                fill="#c68401"
+                onClick={openModal(4)}
+                fill={selectedColors.band4}
             />
             <path
                 d="M332.475 165.729V22.766c-6.533 1.922-12.31 3.311-16.199 3.311h-15.282v136.34h15.282c3.89 0 9.666 1.39 16.2 3.312z"
-                fill="#bf5f00"
+                onClick={openModal(5)}
+                fill={selectedColors.band5}
             />
             <path
                 d="M120.717 177.368a56.56 56.56 0 0 0 4.92-.202V11.686a80.54 80.54 0 0 0-4.92-.146c-.34 0-.705.02-1.067.037-.659-.017-1.323-.037-2.005-.037-5.6 0-14.388 2.431-23.728 5.331v155.166c9.34 2.9 18.127 5.33 23.728 5.33.691 0 1.366-.02 2.034-.036.354.017.705.037 1.038.037z"
-                fill="#fdca01"
+                onClick={openModal(6)}
+                fill={selectedColors.band6}
             />
         </g>
     </svg>

@@ -25,9 +25,15 @@ const Layout = ({ children }) => (
             maxWidth: 960,
             padding: `0px 1.0875rem 1.45rem`,
             paddingTop: 0,
+
           }}
         >
-          <main>{children}</main>
+          <main
+            style={{
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >{children}</main>
           <footer>
             © {new Date().getFullYear()},{` `}
             <a href="https://resistor.online">Resistor Calculator</a>

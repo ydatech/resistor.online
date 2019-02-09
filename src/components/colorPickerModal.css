@@ -1,0 +1,20 @@
+:focus{
+    outline: 0;
+}
+
+.band-color-container{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    /* align-items: center; */
+}
+
+.band-color-item{
+    margin-bottom: 10px;
+}
+
+.band-color-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

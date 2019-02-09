@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SvgComponent = ({ openModal, ...props }) => (
+const SvgComponent = ({ openModal, selectedColors, ...props }) => (
   <svg
     style={{
       display: "inline-block",
@@ -23,20 +23,21 @@ const SvgComponent = ({ openModal, ...props }) => (
       />
       <path
         onClick={openModal(1)}
-        fill="#fdca01"
+        fill={selectedColors.band1}
         d="M126.586 12.124c-1.718 0-3.352.064-4.918.2v165.064c1.572.096 3.208.146 4.918.146.34 0 .705-.02 1.068-.036.658.017 1.323.036 2.005.036 5.6 0 14.388-2.425 23.727-5.317V17.44c-9.34-2.892-18.127-5.317-23.727-5.317-.692 0-1.366.02-2.034.036-.354-.017-.705-.036-1.039-.036z"
       />
       <path
         onClick={openModal(2)}
-        fill="#9e0097"
+        fill={selectedColors.band2}
         d="M180.494 23.766V165.23c6.533-1.902 12.31-3.276 16.199-3.276h15.282V27.043h-15.282c-3.89 0-9.666-1.375-16.199-3.277z"
       />
       <path
         onClick={openModal(3)}
-        fill="#f44800" d="M240.074 27.06v134.625h31.323V27.06h-31.323z" />
+        fill={selectedColors.band3}
+        d="M240.074 27.06v134.625h31.323V27.06h-31.323z" />
       <path
         onClick={openModal(4)}
-        fill="#c68401"
+        fill={selectedColors.band4}
         d="M385.155 11.18c-2.961 0-6.82.711-11.182 1.804v162.945c4.362 1.092 8.22 1.803 11.182 1.803.674 0 1.331-.02 1.983-.037.358.018.72.037 1.055.037 6.758 0 12.389-.793 17.13-2.208V14.382c-4.65-2.025-10.253-3.201-17.13-3.201-.33 0-.677.02-1.027.037-.66-.017-1.327-.037-2.01-.037z"
       />
     </g>
