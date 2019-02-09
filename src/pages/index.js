@@ -17,7 +17,7 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <h1>Resistor Calculator</h1>
+        {/* <h1>Resistor Calculator</h1> */}
         <div style={{
 
           display: "inline-block",
