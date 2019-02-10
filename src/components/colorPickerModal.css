@@ -28,3 +28,16 @@
      padding: 0;
       font-weight: bold;
 }
+
+.close-button{
+    position: fixed;
+    top: 10px;
+    right:10px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 1px solid rebeccapurple;
+    color:rebeccapurple;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}

@@ -111,152 +111,253 @@ export const toleranceColors = [
 ]
 
 
+export const temperatureColors = [
+    {
+        color: "Brown",
+        value: 100
+    },
+    {
+        color: "Red",
+        value: 50
+    },
+    {
+        color: "Orange",
+        value: 15
+    },
+    {
+        color: "Yellow",
+        value: 25
+    },
+    {
+        color: "Blue",
+        value: 10
+    },
+    {
+        color: "Purple",
+        value: 5
+    }
+];
 export const formatValue = (number) => {
     return numeral(number).format('0 a')
 }
 
 const renderColors = (bandIndex, chooseColor, mode, selectedColors) => {
 
+    let show = 'color'
+
+
 
     switch (mode) {
         case 4:
             if (bandIndex === 4) {
-
-                return (
-                    <>
-                        <div className="band-color-header">
-                            <h3>Choose {ordinal_suffix_of(bandIndex)} Band Color (Tolerance)</h3>
-                        </div>
-                        <div className="band-color-container">
-                            {toleranceColors.map((item, index) => (
-
-                                <div
-                                    key={item.color}
-                                    className="band-color-item"
-                                    onClick={(e) => {
-                                        e.preventDefault()
-                                        chooseColor(item.color.toLowerCase())
-                                    }}
-
-                                    style={{
-                                        border: selectedColors[`band${bandIndex}`] === item.color.toLowerCase() ? '2px solid rebeccapurple' : '',
-                                        color: item.color,
-                                        borderRadius: "5px"
-
-                                    }}
-
-                                >
-                                    <div className="band-color-content">
-                                        <span
-
-                                            style={{
-                                                width: 50,
-                                                height: 50,
-                                                backgroundColor: item.color.toLocaleLowerCase()
-                                            }}></span>
-
-                                        <p className="band-color-text">{item.color}</p>
-                                        <p className="band-color-text">{item.value * 100}%</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </>
-                )
-
+                show = 'tolerance'
             } else if (bandIndex === 3) {
-
-                return (
-                    <>
-                        <div className="band-color-header">
-                            <h3>Choose {ordinal_suffix_of(bandIndex)} Band Color (Mulitiplier)</h3>
-                        </div>
-                        <div className="band-color-container">
-                            {multiplierColors.map((item, index) => (
-
-                                <div
-
-                                    key={item.color}
-                                    className="band-color-item"
-                                    onClick={(e) => {
-                                        e.preventDefault()
-                                        chooseColor(item.color.toLowerCase())
-                                    }}
-
-                                    style={{
-                                        border: selectedColors[`band${bandIndex}`] === item.color.toLowerCase() ? '2px solid rebeccapurple' : '',
-                                        color: item.color,
-                                        borderRadius: "5px"
-
-                                    }}
-
-                                >
-                                    <div className="band-color-content">
-                                        <span
-                                            style={{
-                                                width: 50,
-                                                height: 50,
-                                                backgroundColor: item.color.toLocaleLowerCase()
-                                            }}></span>
-
-                                        <p className="band-color-text">{item.color}</p>
-                                        <p className="band-color-text">{item.value > 1 ? formatValue(item.value) : item.value} &#8486;</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </>
-                )
+                show = 'multiplier'
+            } else {
+                show = 'color'
             }
-            return (
-                <>
-                    <div className="band-color-header">
-                        <h3>Choose {ordinal_suffix_of(bandIndex)} Band Color</h3>
-                    </div>
-                    <div className="band-color-container">
-                        {colors.map((color, index) => (
-                            <div
-                                key={color}
-                                className="band-color-item"
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    chooseColor(color.toLowerCase())
-                                }}
-
-                                style={{
-                                    border: selectedColors[`band${bandIndex}`] === color.toLowerCase() ? '2px solid rebeccapurple' : '',
-                                    color: color,
-                                    borderRadius: "5px"
-
-                                }}
-
-                            >
-                                <div className="band-color-content">
-                                    <span
-
-                                        style={{
-                                            width: 50,
-                                            height: 50,
-                                            backgroundColor: color.toLocaleLowerCase()
-                                        }}></span>
-
-                                    <p className="band-color-text">{color}</p>
-                                    <p className="band-color-text">{index}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </>
-            )
+            break;
         case 5:
-            return null
+            if (bandIndex === 5) {
+                show = 'tolerance'
+            } else if (bandIndex === 4) {
+                show = 'multiplier'
+            } else {
+                show = 'color'
+            }
+            break;
         case 6:
-
-            return null
+            if (bandIndex === 6) {
+                show = 'temperature'
+            }
+            else if (bandIndex === 5) {
+                show = 'tolerance'
+            } else if (bandIndex === 4) {
+                show = 'multiplier'
+            } else {
+                show = 'color'
+            }
+            break;
         default:
             return null
 
     }
+
+    // console.log(mode, bandIndex, show)
+    if (show === 'temperature') {
+        return (
+            <>
+                <div className="band-color-header">
+                    <h3>Choose {ordinal_suffix_of(bandIndex)} Band Color (Temperature Coifficient)</h3>
+                </div>
+                <div className="band-color-container">
+                    {temperatureColors.map((item, index) => (
+
+                        <div
+                            key={item.color}
+                            className="band-color-item"
+                            onClick={(e) => {
+                                e.preventDefault()
+                                chooseColor(item.color.toLowerCase())
+                            }}
+
+                            style={{
+                                border: selectedColors[`band${bandIndex}`] === item.color.toLowerCase() ? '2px solid rebeccapurple' : '',
+                                color: item.color,
+                                borderRadius: "5px"
+
+                            }}
+
+                        >
+                            <div className="band-color-content">
+                                <span
+
+                                    style={{
+                                        width: 50,
+                                        height: 50,
+                                        backgroundColor: item.color.toLocaleLowerCase()
+                                    }}></span>
+
+                                <p className="band-color-text">{item.color}</p>
+                                <p className="band-color-text">{item.value} ppm/K</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </>
+        )
+    }
+    else if (show === 'tolerance') {
+
+        return (
+            <>
+                <div className="band-color-header">
+                    <h3>Choose {ordinal_suffix_of(bandIndex)} Band Color (Tolerance)</h3>
+                </div>
+                <div className="band-color-container">
+                    {toleranceColors.map((item, index) => (
+
+                        <div
+                            key={item.color}
+                            className="band-color-item"
+                            onClick={(e) => {
+                                e.preventDefault()
+                                chooseColor(item.color.toLowerCase())
+                            }}
+
+                            style={{
+                                border: selectedColors[`band${bandIndex}`] === item.color.toLowerCase() ? '2px solid rebeccapurple' : '',
+                                color: item.color,
+                                borderRadius: "5px"
+
+                            }}
+
+                        >
+                            <div className="band-color-content">
+                                <span
+
+                                    style={{
+                                        width: 50,
+                                        height: 50,
+                                        backgroundColor: item.color.toLocaleLowerCase()
+                                    }}></span>
+
+                                <p className="band-color-text">{item.color}</p>
+                                <p className="band-color-text">{item.value * 100}%</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </>
+        )
+
+    } else if (show === 'multiplier') {
+
+        return (
+            <>
+                <div className="band-color-header">
+                    <h3>Choose {ordinal_suffix_of(bandIndex)} Band Color (Mulitiplier)</h3>
+                </div>
+                <div className="band-color-container">
+                    {multiplierColors.map((item, index) => (
+
+                        <div
+
+                            key={item.color}
+                            className="band-color-item"
+                            onClick={(e) => {
+                                e.preventDefault()
+                                chooseColor(item.color.toLowerCase())
+                            }}
+
+                            style={{
+                                border: selectedColors[`band${bandIndex}`] === item.color.toLowerCase() ? '2px solid rebeccapurple' : '',
+                                color: item.color,
+                                borderRadius: "5px"
+
+                            }}
+
+                        >
+                            <div className="band-color-content">
+                                <span
+                                    style={{
+                                        width: 50,
+                                        height: 50,
+                                        backgroundColor: item.color.toLocaleLowerCase()
+                                    }}></span>
+
+                                <p className="band-color-text">{item.color}</p>
+                                <p className="band-color-text">{item.value > 1 ? formatValue(item.value) : item.value} &#8486;</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </>
+        )
+    }
+    else {
+        return (
+            <>
+                <div className="band-color-header">
+                    <h3>Choose {ordinal_suffix_of(bandIndex)} Band Color</h3>
+                </div>
+                <div className="band-color-container">
+                    {colors.map((color, index) => (
+                        <div
+                            key={color}
+                            className="band-color-item"
+                            onClick={(e) => {
+                                e.preventDefault()
+                                chooseColor(color.toLowerCase())
+                            }}
+
+                            style={{
+                                border: selectedColors[`band${bandIndex}`] === color.toLowerCase() ? '2px solid rebeccapurple' : '',
+                                color: color,
+                                borderRadius: "5px"
+
+                            }}
+
+                        >
+                            <div className="band-color-content">
+                                <span
+
+                                    style={{
+                                        width: 50,
+                                        height: 50,
+                                        backgroundColor: color.toLocaleLowerCase()
+                                    }}></span>
+
+                                <p className="band-color-text">{color}</p>
+                                <p className="band-color-text">{index}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </>
+        )
+    }
+    return null
 
 
 }
@@ -274,10 +375,23 @@ const colorPickerModal = ({ bandIndex, chooseColor, mode, selectedColors, ...pro
             contentLabel="Resistor Color Band Picker"
             {...props}
         >
+            <button
+                onClick={props.onRequestClose}
+                className="close-button"
+                data-close
+                aria-label="Close modal"
+                type="button"
+            >
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div>
+                {
+                    renderColors(bandIndex, chooseColor, mode, selectedColors)
+                }
+            </div>
 
-            {
-                renderColors(bandIndex, chooseColor, mode, selectedColors)
-            }
+
+
 
         </Modal >
     );

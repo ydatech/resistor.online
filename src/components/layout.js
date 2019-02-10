@@ -31,7 +31,9 @@ const Layout = ({ children }) => (
           <main
             style={{
               display: 'flex',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              flexFlow: 'column nowrap',
+              alignItems: 'center'
             }}
           >{children}</main>
         </div>
