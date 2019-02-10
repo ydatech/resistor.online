@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     flex-flow: column nowrap;
+    /* overflow-y: auto; */
     /* align-items: center; */
 }
 
@@ -17,4 +18,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+}
+.band-color-header{
+
 }

@@ -34,11 +34,22 @@ const Layout = ({ children }) => (
               justifyContent: 'center'
             }}
           >{children}</main>
-          <footer>
-            © {new Date().getFullYear()},{` `}
-            <a href="https://resistor.online">Resistor Calculator</a>
-          </footer>
         </div>
+        <footer style={{
+          position: "absolute",
+          bottom: 0,
+          right: 0,
+
+          left: 0,
+          padding: "1rem",
+          width: "100%",
+          textAlign: "center",
+          height: "60px"   /* Height of the footer */
+          //background:#6cf;
+        }}>
+          © {new Date().getFullYear()},{` `}
+          <a href="https://resistor.online">Resistor Calculator</a>
+        </footer>
       </>
     )}
   />
