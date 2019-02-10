@@ -228,7 +228,7 @@ class IndexPage extends React.Component {
             <h3> Resistor Value:</h3>
             <p>Resistence: {ohmValue > 1 ? formatValue(ohmValue) : ohmValue.toFixed(2)} &#8486;</p>
             <p>Tolerance: &plusmn; {tolerance}% </p>
-            {mode === 6 && <p>Temperature Confficient: {temperature} ppm/K</p>}
+            {mode === 6 && <p>Temperature Coefficient: {temperature} ppm/K</p>}
           </div>
         </div>
 
