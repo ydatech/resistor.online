@@ -155,8 +155,8 @@ const renderColors = (bandIndex, chooseColor, mode, selectedColors) => {
                                                 backgroundColor: item.color.toLocaleLowerCase()
                                             }}></span>
 
-                                        <p style={{ margin: 0, padding: 0 }}>{item.color}</p>
-                                        <p style={{ margin: 0, padding: 0 }}>{item.value * 100}%</p>
+                                        <p className="band-color-text">{item.color}</p>
+                                        <p className="band-color-text">{item.value * 100}%</p>
                                     </div>
                                 </div>
                             ))}
@@ -199,8 +199,8 @@ const renderColors = (bandIndex, chooseColor, mode, selectedColors) => {
                                                 backgroundColor: item.color.toLocaleLowerCase()
                                             }}></span>
 
-                                        <p style={{ margin: 0, padding: 0 }}>{item.color}</p>
-                                        <p style={{ margin: 0, padding: 0 }}>{item.value > 1 ? formatValue(item.value) : item.value} &#8486;</p>
+                                        <p className="band-color-text">{item.color}</p>
+                                        <p className="band-color-text">{item.value > 1 ? formatValue(item.value) : item.value} &#8486;</p>
                                     </div>
                                 </div>
                             ))}
@@ -240,8 +240,8 @@ const renderColors = (bandIndex, chooseColor, mode, selectedColors) => {
                                             backgroundColor: color.toLocaleLowerCase()
                                         }}></span>
 
-                                    <p style={{ margin: 0, padding: 0 }}>{color}</p>
-                                    <p style={{ margin: 0, padding: 0 }}>{index}</p>
+                                    <p className="band-color-text">{color}</p>
+                                    <p className="band-color-text">{index}</p>
                                 </div>
                             </div>
                         ))}
@@ -268,7 +268,7 @@ const colorPickerModal = ({ bandIndex, chooseColor, mode, selectedColors, ...pro
                 content: {
                     margin: 'auto', maxWidth: 550,
                     color: 'rebeccapurple',
-                    backgroundColor: 'rgba(0, 0, 0, 0.2)'
+                    backgroundColor: 'rgb(217, 187, 122, 0.4)'
                 }
             }}
             contentLabel="Resistor Color Band Picker"
