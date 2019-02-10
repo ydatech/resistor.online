@@ -1,5 +1,4 @@
 import React from "react"
-//import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -167,7 +166,7 @@ class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <SEO title="" keywords={[`resistor calculator`, `resistor colors code calculator`, `resistor code`, 'resistor value', '4 band resistor calculator', '5 band resistor calculator', '6 band resistor calculator']} />
+        <SEO title="Resistor Calculator" keywords={[`resistor calculator`, `resistor colors code calculator`, `resistor code`, 'resistor value', '4 band resistor calculator', '5 band resistor calculator', '6 band resistor calculator']} />
         {/* <h1>Resistor Calculator</h1> */}
         <div style={{
           width: '100%',
@@ -178,19 +177,19 @@ class IndexPage extends React.Component {
             onClick={this.switchMode(4)}
             style={mode === 4 ? buttonStyleActive : buttonStyleInactive}
           >
-            4 Band
+            4-Band
           </button>
           <button
             onClick={this.switchMode(5)}
             style={mode === 5 ? buttonStyleActive : buttonStyleInactive}
           >
-            5 Band
+            5-Band
           </button>
           <button
             onClick={this.switchMode(6)}
             style={mode === 6 ? buttonStyleActive : buttonStyleInactive}
           >
-            6 Band
+            6-Band
           </button>
         </div>
         <div style={{
@@ -226,9 +225,9 @@ class IndexPage extends React.Component {
             lineHeight: .5
           }}>
             <h3> Resistor Value:</h3>
-            <p>Resistence: {ohmValue > 1 ? formatValue(ohmValue) : ohmValue.toFixed(2)} &#8486;</p>
-            <p>Tolerance: &plusmn; {tolerance}% </p>
-            {mode === 6 && <p>Temperature Coefficient: {temperature} ppm/K</p>}
+            <p>Resistence: <strong>{ohmValue > 1 ? formatValue(ohmValue) : ohmValue.toFixed(2)} &#8486;</strong></p>
+            <p>Tolerance: <strong>&plusmn; {tolerance}% </strong></p>
+            {mode === 6 && <p>Temperature Coefficient: <strong>{temperature} ppm/K</strong></p>}
           </div>
         </div>
 

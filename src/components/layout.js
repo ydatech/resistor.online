@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
+import { Link } from "gatsby"
+
 import Header from "./header"
 import "./layout.css"
 
@@ -50,7 +52,8 @@ const Layout = ({ children }) => (
           //background:#6cf;
         }}>
           © {new Date().getFullYear()},{` `}
-          <a href="https://resistor.online">Resistor Calculator</a>
+          <a href="https://resistor.online">Resistor Calculator</a>.
+          {` `} <Link to="/about">About</Link>
         </footer>
       </>
     )}

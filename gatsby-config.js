@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Resistor Calculator`,
-    description: `Resistor Calculator will help you calculate resistor with 4/5/6 color bands value.`,
+    description: `Resistor Calculator helps you to calculate 4-band, 5-band, and 6-band colors resistor value (resistance, tolerance, and temperature coefficient).`,
     author: `@resistor.online`,
   },
   plugins: [
