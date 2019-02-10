@@ -222,7 +222,8 @@ class IndexPage extends React.Component {
             top: "50%",
             textAlign: "center",
             width: "100%",
-            color: "rebeccapurple"
+            color: "rebeccapurple",
+            lineHeight: .5
           }}>
             <h3> Resistor Value:</h3>
             <p>Resistence: {ohmValue > 1 ? formatValue(ohmValue) : ohmValue.toFixed(2)} &#8486;</p>
