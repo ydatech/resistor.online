@@ -167,7 +167,7 @@ class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <SEO title="Home" keywords={[`resistor calculator`, `resistor colors code calculator`, `resistor code`, 'resistor value', '4 band resistor calculator', '5 band resistor calculator', '6 band resistor calculator']} />
+        <SEO title="" keywords={[`resistor calculator`, `resistor colors code calculator`, `resistor code`, 'resistor value', '4 band resistor calculator', '5 band resistor calculator', '6 band resistor calculator']} />
         {/* <h1>Resistor Calculator</h1> */}
         <div style={{
           width: '100%',
@@ -225,7 +225,9 @@ class IndexPage extends React.Component {
             color: "rebeccapurple"
           }}>
             <h3> Resistor Value:</h3>
-            <p>{ohmValue > 1 ? formatValue(ohmValue) : ohmValue.toFixed(2)} &#8486; &plusmn; {tolerance}% {mode === 6 ? `, ${temperature} ppm/K` : ''}</p>
+            <p>Resistence: {ohmValue > 1 ? formatValue(ohmValue) : ohmValue.toFixed(2)} &#8486;</p>
+            <p>Tolerance: &plusmn; {tolerance}% </p>
+            {mode === 6 && <p>Temperature Confficient: {temperature} ppm/K</p>}
           </div>
         </div>
 
