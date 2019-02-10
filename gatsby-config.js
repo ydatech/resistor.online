@@ -18,8 +18,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Resistor Calculator`,
+        short_name: `resistor-calculator`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
