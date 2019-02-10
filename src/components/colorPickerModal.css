@@ -12,6 +12,9 @@
 
 .band-color-item{
     margin-bottom: 10px;
+    text-decoration: none;
+   
+    padding:5px;
 }
 
 .band-color-content{

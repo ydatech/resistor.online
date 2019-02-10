@@ -6,13 +6,13 @@ Modal.setAppElement('#___gatsby')
 const ordinal_suffix_of = (i) => {
     var j = i % 10,
         k = i % 100;
-    if (j == 1 && k != 11) {
+    if (j === 1 && k !== 11) {
         return i + "st";
     }
-    if (j == 2 && k != 12) {
+    if (j === 2 && k !== 12) {
         return i + "nd";
     }
-    if (j == 3 && k != 13) {
+    if (j === 3 && k !== 13) {
         return i + "rd";
     }
     return i + "th";
@@ -115,7 +115,7 @@ export const formatValue = (number) => {
     return numeral(number).format('0 a')
 }
 
-const renderColors = (bandIndex, chooseColor, mode) => {
+const renderColors = (bandIndex, chooseColor, mode, selectedColors) => {
 
 
     switch (mode) {
@@ -129,17 +129,31 @@ const renderColors = (bandIndex, chooseColor, mode) => {
                         </div>
                         <div className="band-color-container">
                             {toleranceColors.map((item, index) => (
-                                <div key={item.color} className="band-color-item">
+
+                                <div
+                                    key={item.color}
+                                    className="band-color-item"
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        chooseColor(item.color.toLowerCase())
+                                    }}
+
+                                    style={{
+                                        border: selectedColors[`band${bandIndex}`] === item.color.toLowerCase() ? '2px solid rebeccapurple' : '',
+                                        color: item.color,
+                                        borderRadius: "5px"
+
+                                    }}
+
+                                >
                                     <div className="band-color-content">
-                                        <button
-                                            onClick={() => {
-                                                chooseColor(item.color.toLowerCase())
-                                            }}
+                                        <span
+
                                             style={{
                                                 width: 50,
                                                 height: 50,
                                                 backgroundColor: item.color.toLocaleLowerCase()
-                                            }}></button>
+                                            }}></span>
 
                                         <p style={{ margin: 0, padding: 0 }}>{item.color}</p>
                                         <p style={{ margin: 0, padding: 0 }}>{item.value * 100}%</p>
@@ -151,6 +165,7 @@ const renderColors = (bandIndex, chooseColor, mode) => {
                 )
 
             } else if (bandIndex === 3) {
+
                 return (
                     <>
                         <div className="band-color-header">
@@ -158,17 +173,31 @@ const renderColors = (bandIndex, chooseColor, mode) => {
                         </div>
                         <div className="band-color-container">
                             {multiplierColors.map((item, index) => (
-                                <div key={item.color} className="band-color-item">
+
+                                <div
+
+                                    key={item.color}
+                                    className="band-color-item"
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        chooseColor(item.color.toLowerCase())
+                                    }}
+
+                                    style={{
+                                        border: selectedColors[`band${bandIndex}`] === item.color.toLowerCase() ? '2px solid rebeccapurple' : '',
+                                        color: item.color,
+                                        borderRadius: "5px"
+
+                                    }}
+
+                                >
                                     <div className="band-color-content">
-                                        <button
-                                            onClick={() => {
-                                                chooseColor(item.color.toLowerCase())
-                                            }}
+                                        <span
                                             style={{
                                                 width: 50,
                                                 height: 50,
                                                 backgroundColor: item.color.toLocaleLowerCase()
-                                            }}></button>
+                                            }}></span>
 
                                         <p style={{ margin: 0, padding: 0 }}>{item.color}</p>
                                         <p style={{ margin: 0, padding: 0 }}>{item.value > 1 ? formatValue(item.value) : item.value} &#8486;</p>
@@ -186,17 +215,30 @@ const renderColors = (bandIndex, chooseColor, mode) => {
                     </div>
                     <div className="band-color-container">
                         {colors.map((color, index) => (
-                            <div key={color} className="band-color-item">
+                            <div
+                                key={color}
+                                className="band-color-item"
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    chooseColor(color.toLowerCase())
+                                }}
+
+                                style={{
+                                    border: selectedColors[`band${bandIndex}`] === color.toLowerCase() ? '2px solid rebeccapurple' : '',
+                                    color: color,
+                                    borderRadius: "5px"
+
+                                }}
+
+                            >
                                 <div className="band-color-content">
-                                    <button
-                                        onClick={() => {
-                                            chooseColor(color.toLowerCase())
-                                        }}
+                                    <span
+
                                         style={{
                                             width: 50,
                                             height: 50,
                                             backgroundColor: color.toLocaleLowerCase()
-                                        }}></button>
+                                        }}></span>
 
                                     <p style={{ margin: 0, padding: 0 }}>{color}</p>
                                     <p style={{ margin: 0, padding: 0 }}>{index}</p>
@@ -211,22 +253,30 @@ const renderColors = (bandIndex, chooseColor, mode) => {
         case 6:
 
             return null
+        default:
+            return null
 
     }
 
 
 }
 
-const colorPickerModal = ({ bandIndex, chooseColor, mode, ...props }) => {
+const colorPickerModal = ({ bandIndex, chooseColor, mode, selectedColors, ...props }) => {
     return (
         <Modal
-            style={{ content: { margin: 'auto', maxWidth: 550 } }}
+            style={{
+                content: {
+                    margin: 'auto', maxWidth: 550,
+                    color: 'rebeccapurple',
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)'
+                }
+            }}
             contentLabel="Resistor Color Band Picker"
             {...props}
         >
 
             {
-                renderColors(bandIndex, chooseColor, mode)
+                renderColors(bandIndex, chooseColor, mode, selectedColors)
             }
 
         </Modal >

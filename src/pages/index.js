@@ -121,10 +121,10 @@ class IndexPage extends React.Component {
             top: "50%",
             textAlign: "center",
             width: "100%",
-            color:"rebeccapurple"
+            color: "rebeccapurple"
           }}>
             <h3> Resistor Value:</h3>
-            <p>{formatValue(ohmValue)} &#8486; &plusmn; {tolerance}%</p>
+            <p>{ohmValue > 1 ? formatValue(ohmValue) : ohmValue} &#8486; &plusmn; {tolerance}%</p>
           </div>
         </div>
 
@@ -134,6 +134,7 @@ class IndexPage extends React.Component {
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           chooseColor={this.chooseColor}
+          selectedColors={this.state.selectedColors}
 
         />
 
