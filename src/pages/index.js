@@ -166,7 +166,7 @@ class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <SEO title="Resistor Calculator" keywords={[`resistor calculator`, `resistor colors code calculator`, `resistor color code`, 'resistor value', 'resistor calculator 4 band', 'resistor calculator 5 band', 'resistor calculator 6 band', 'resistor calcultor download']} />
+        <SEO title="Resistor Calculator" keywords={[`resistor calculator`, `resistor colors code calculator`, `resistor color code`, 'resistor value', 'resistor calculator 4 band', 'resistor calculator 5 band', 'resistor calculator 6 band', 'resistor calculator download']} />
         {/* <h1>Resistor Calculator</h1> */}
         <div style={{
           width: '100%',
