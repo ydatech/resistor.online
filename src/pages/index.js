@@ -7,6 +7,8 @@ import Resistor4 from '../components/resistor4'
 import Resistor5 from '../components/resistor5'
 import Resistor6 from '../components/resistor6'
 
+import Ripple from '../components/ripple'
+
 import BandModal, { colors, multiplierColors, toleranceColors, temperatureColors, formatValue } from '../components/colorPickerModal'
 
 const buttonStyleActive = {
@@ -60,7 +62,8 @@ class IndexPage extends React.Component {
     mode: 4,
     modalIsOpen: false,
     selectedColors: selectedColors4,
-    ohmValue: 0
+    ohmValue: 47000,
+    tolerance: 0.05 * 100
   }
   componentDidMount() {
     this.calculateResult()
@@ -77,7 +80,7 @@ class IndexPage extends React.Component {
     this.setState({
       bandIndex,
       modalIsOpen: true,
-
+      disableRipple: true
     })
   }
 
@@ -161,9 +164,23 @@ class IndexPage extends React.Component {
       temperature
     })
   }
-  render() {
-    const { mode, ohmValue, tolerance, temperature } = this.state;
 
+  setFirstRef = (element) => {
+    this.firstBandRef = element;
+  }
+  render() {
+    const { mode, ohmValue, tolerance, temperature, disableRipple } = this.state;
+    let showRipple = false;
+    let rippleTop = 0;
+    let rippleLeft = 0;
+    if (this.firstBandRef) {
+      showRipple = true;
+      const rect = this.firstBandRef.getBoundingClientRect();
+      rippleLeft = rect.left;
+      rippleTop = rect.top
+    }
+
+    showRipple = disableRipple ? false : showRipple;
     return (
       <Layout>
         <SEO title="Resistor Calculator" keywords={[`resistor calculator`, `resistor colors code calculator`, `resistor color code`, 'resistor value', 'resistor calculator 4 band', 'resistor calculator 5 band', 'resistor calculator 6 band', 'resistor calculator download']} />
@@ -202,7 +219,16 @@ class IndexPage extends React.Component {
           overflow: "hidden",
           maxWidth: 600
         }}>
+          {showRipple &&
+            <Ripple
+              onClick={this.openModal(1)}
+              style={{
+                top: rippleTop,
+                left: rippleLeft - 16
+              }}
+            />}
           {mode === 4 && <Resistor4
+            setFirstRef={this.setFirstRef}
             openModal={this.openModal}
             selectedColors={this.state.selectedColors}
           />}
