@@ -233,10 +233,12 @@ class IndexPage extends React.Component {
             selectedColors={this.state.selectedColors}
           />}
           {mode === 5 && <Resistor5
+          setFirstRef={this.setFirstRef}
             openModal={this.openModal}
             selectedColors={this.state.selectedColors}
           />}
           {mode === 6 && <Resistor6
+          setFirstRef={this.setFirstRef}
             openModal={this.openModal}
             selectedColors={this.state.selectedColors}
           />}

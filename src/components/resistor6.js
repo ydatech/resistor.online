@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SvgComponent = ({ openModal, selectedColors, ...props }) => (
+const SvgComponent = ({ openModal, selectedColors, setFirstRef, ...props }) => (
     <svg style={{
         display: "inline-block",
         position: "absolute",
@@ -22,6 +22,7 @@ const SvgComponent = ({ openModal, selectedColors, ...props }) => (
             />
 
             <path
+                ref={setFirstRef}
                 d="M120.717 177.368a56.56 56.56 0 0 0 4.92-.202V11.686a80.54 80.54 0 0 0-4.92-.146c-.34 0-.705.02-1.067.037-.659-.017-1.323-.037-2.005-.037-5.6 0-14.388 2.431-23.728 5.331v155.166c9.34 2.9 18.127 5.33 23.728 5.33.691 0 1.366-.02 2.034-.036.354.017.705.037 1.038.037z"
                 onClick={openModal(1)}
                 fill={selectedColors.band1}
